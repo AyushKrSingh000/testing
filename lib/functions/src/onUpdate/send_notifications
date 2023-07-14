@@ -1,0 +1,82 @@
+import {Change} from "firebase-functions/lib/common/change";
+import {QueryDocumentSnapshot} from "firebase-functions/lib/v1/providers/firestore";
+import {db, admin} from "../config/firebase";
+
+type MessageDetail = {
+   sendMessage : bool,
+}
+type UserIds = {
+    users: Array<string>,
+};
+type UserDetail = {
+    username: string,
+    profilePicUrl: string,
+    mobileNumber: string,
+    fcmId: string | undefined,
+}
+const onDmMessageCreated = async (change: Change<QueryDocumentSnapshot>)=> {
+    
+    const isChanged= (change.after.data().messageDetail as MessageDetail).sendMessage;
+   
+
+    // const workspaceData = (await db
+    //     .doc(`workspaces/1`)
+    //     .get()).data();
+
+    
+
+    // update lastMessage & usersInfo in dm document
+   
+
+    // send notification to all the dm members
+    if (isChanged) {
+        const usersList = ((await db.collection("users").get()).data() as UserIds).users;
+      
+
+        if (usersList) {
+            // prepare list of all FCM tokens
+            const fcmTokens = [];
+            
+            for (let i = 0; i < usersList.length; ++i) {
+                const userData = (await db.collection("users").doc(user).get()).data() as UserDetail;
+                const userId = usersList[i].user;
+                // check if this user is not the sender
+                if (userData) {
+                     // send notification to the user
+                    const fcmToken = usersData.fcmId;
+                    if (fcmToken) {
+                        fcmTokens.push(fcmToken);
+                    
+                    }
+                }
+                   
+            }
+
+            if (fcmTokens) {
+                const text = "hi Ayush this side";
+                // NOTE: multicast message can only be sent to a max of 500 tokens
+                await messaging.sendMulticast(
+                    {
+                        tokens: fcmTokens,
+                        notification: {
+                            title: "ayush singh",
+                            body: text ? (text.length <= 100 ? text : text.substring(0, 97) + "...") : "",
+                        },
+                        android: {
+                            notification: {
+                                channelId: "new-message",
+                                priority: "max",
+                            },
+                        },
+                        data: {
+                            click_action: "com.testing.NEW_EVENT",
+                           
+                        },
+                    },
+                );
+            }
+        }
+    }
+};
+
+export {onDmMessageCreated};
