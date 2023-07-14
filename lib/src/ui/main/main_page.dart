@@ -35,8 +35,8 @@ class _MainPageState extends ConsumerState<MainPage> {
   }
 
   Future<void> updateAppWidget() async {
-    await HomeWidget.saveWidgetData('title', "Smart Punjab Hack");
-    await HomeWidget.saveWidgetData('timeline', "25th August 2023");
+    await HomeWidget.saveWidgetData('title', "Smart India Hackathon");
+    await HomeWidget.saveWidgetData('timeline', "29th August 2024");
     await HomeWidget.updateWidget(
         name: 'HomeScreenWidgetProvider', iOSName: 'HomeScreenWidgetProvider');
   }
