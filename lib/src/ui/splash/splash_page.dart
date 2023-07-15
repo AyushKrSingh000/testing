@@ -3,8 +3,9 @@ import 'dart:async';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../../../logic/repositories/app_repository/app_repository.dart';
+import '../../logic/repositories/app_repository/app_repository.dart';
 import '../../constants/colors.dart';
 import '../../routing/router.dart';
 
@@ -63,11 +64,20 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       backgroundColor: primaryColor,
       body: AnimatedContainer(
         duration: const Duration(milliseconds: 400),
-        color: isChanged ? primaryColor : Colors.amber,
+        color: primaryColor,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text('Hi YAish')],
+            children: [
+              Text(
+                'Testing',
+                style: GoogleFonts.nunito(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 40,
+                  color: Colors.white,
+                ),
+              )
+            ],
           ),
         ),
       ),

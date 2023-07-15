@@ -6,7 +6,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../logic/services/notification_services.dart';
+import '../../logic/services/notification_services.dart';
 import '../../routing/router.dart';
 
 final notificationHandlerProvider =
@@ -33,7 +33,6 @@ class NotificationHandler extends StateNotifier {
     required this.notificationService,
     required this.ref,
   }) : super(null) {
-    print('object');
     () async {
       _onMessageSubscription =
           FirebaseMessaging.onMessage.listen(_handleNewFcmMessage);
@@ -138,7 +137,7 @@ class NotificationHandler extends StateNotifier {
     }
     switch (data['click_action']) {
       case 'com.mummbl.NEW_MAIL':
-        context?.navigateTo(MainRoute());
+        context?.navigateTo(const MainRoute());
 
         break;
 
