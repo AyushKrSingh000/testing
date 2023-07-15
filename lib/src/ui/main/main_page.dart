@@ -44,6 +44,7 @@ class _MainPageState extends ConsumerState<MainPage> {
   }
 
   Future<void> updateAppWidget() async {
+
     await HomeWidget.saveWidgetData('title', "It Works😃\n");
     await HomeWidget.saveWidgetData('timeline', "😍");
     await HomeWidget.renderFlutterWidget(
