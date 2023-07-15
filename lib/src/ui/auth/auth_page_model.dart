@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../../logic/services/firebase_auth.dart';
-import '../../../logic/services/firebase_firestore.dart';
+import '../../logic/services/firebase_auth.dart';
+import '../../logic/services/firebase_firestore.dart';
 
 part 'auth_page_model.freezed.dart';
 

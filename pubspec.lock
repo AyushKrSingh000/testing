@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.13.0"
+  appcheck:
+    dependency: "direct main"
+    description:
+      name: appcheck
+      sha256: a9e5852e8c9d14342cfa3569fc464a1d49a49eac41e3d006f5825ce54663678f
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.6"
   args:
     dependency: transitive
     description:
@@ -664,6 +672,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.7.1"
+  line_chart:
+    dependency: "direct main"
+    description:
+      name: line_chart
+      sha256: b271cddaa5d418cd82b8845662944215449bb663aeb9af6ba83a89d937dabdbe
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.11"
   lints:
     dependency: transitive
     description:

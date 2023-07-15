@@ -4,6 +4,9 @@ import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.SharedPreferences
 import android.net.Uri
+import java.io.File
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.widget.RemoteViews
 import es.antonborri.home_widget.HomeWidgetBackgroundIntent
 import es.antonborri.home_widget.HomeWidgetLaunchIntent
@@ -27,6 +30,15 @@ class HomeScreenWidgetProvider : HomeWidgetProvider() {
 
                 setTextViewText(R.id.title, title)
                 setTextViewText(R.id.timeline, subTitle)
+                val imagePath = widgetData.getString("lineChart", null)
+               val imageFile = File(imagePath)
+               val imageExists = imageFile.exists()
+               if (imageExists) {
+                  val myBitmap: Bitmap = BitmapFactory.decodeFile(imageFile.absolutePath)
+                  setImageViewBitmap(R.id.event_image, myBitmap)
+               } else {
+                  println("image not found!, looked @: $imagePath")
+               }
 
                 // Pending intent to update counter on button click
                 // val backgroundIntent = HomeWidgetBackgroundIntent.getBroadcast(context,

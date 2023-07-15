@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 
+import '../ui/app/app_list_page.dart';
 import '../ui/auth/auth_page.dart';
 import '../ui/main/main_page.dart';
 import '../ui/splash/splash_page.dart';
@@ -26,6 +27,10 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/main',
       page: MainRoute.page,
+    ),
+    AutoRoute(
+      path: '/app-list',
+      page: AppListRoute.page,
     ),
   ];
 }

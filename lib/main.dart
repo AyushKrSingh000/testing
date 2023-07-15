@@ -5,24 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:home_widget/home_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:testing/src/constants/colors.dart';
 
 import 'firebase_options.dart';
-import 'logic/services/preference_service.dart';
+import 'src/logic/services/preference_service.dart';
 import 'src/app.dart';
 
-Future<void> backgroundCallback(Uri? uri) async {
-  if (uri?.host == 'updatecounter') {
-    int _counter = 0;
-    await HomeWidget.getWidgetData<int>('_counter', defaultValue: 0)
-        .then((value) {
-      _counter = value ?? 5;
-      _counter++;
-    });
-    await HomeWidget.saveWidgetData<int>('_counter', _counter);
-    await HomeWidget.updateWidget(
-        name: 'HomeScreenWidgetProvider', iOSName: 'HomeScreenWidgetProvider');
-  }
-}
+Future<void> backgroundCallback(Uri? uri) async {}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,6 +19,8 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       systemNavigationBarColor: Colors.white,
+      statusBarBrightness: Brightness.light,
+      statusBarColor: primaryColor,
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
