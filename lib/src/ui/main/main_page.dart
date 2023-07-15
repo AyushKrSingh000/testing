@@ -2,7 +2,14 @@ import 'package:auto_route/auto_route.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:home_widget/home_widget.dart';
+import 'package:testing/src/constants/colors.dart';
+import 'package:testing/src/routing/router.dart';
+import 'package:testing/src/ui/app/app_list_page.dart';
+
+import 'package:testing/src/ui/main/widgets/testings.dart';
+import 'package:testing/src/ui/widgets/boxx.dart';
 
 import 'notification_handler.dart';
 
@@ -15,10 +22,12 @@ class MainPage extends ConsumerStatefulWidget {
 }
 
 class _MainPageState extends ConsumerState<MainPage> {
-  int _counter = 0;
   @override
   void initState() {
     super.initState();
+
+    HomeWidget.setAppGroupId('fdj');
+
     Future.delayed(
       Duration.zero,
       () => ref.read(notificationHandlerProvider.notifier).onUiInit(context),
@@ -28,29 +37,24 @@ class _MainPageState extends ConsumerState<MainPage> {
   }
 
   void loadData() async {
-    await HomeWidget.getWidgetData<String>('tineline',
+    await HomeWidget.getWidgetData<String>('timeline',
             defaultValue: 'Saturnalia')
         .then((value) {});
     setState(() {});
   }
 
   Future<void> updateAppWidget() async {
-    await HomeWidget.saveWidgetData('title', "Smart India Hackathon");
-    await HomeWidget.saveWidgetData('timeline', "29th August 2024");
+
+    await HomeWidget.saveWidgetData('title', "It Works😃\n");
+    await HomeWidget.saveWidgetData('timeline', "😍");
+    await HomeWidget.renderFlutterWidget(
+      const Testing(),
+      key: 'lineChart',
+      logicalSize: const Size(100, 100),
+    );
+
     await HomeWidget.updateWidget(
         name: 'HomeScreenWidgetProvider', iOSName: 'HomeScreenWidgetProvider');
-  }
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-    updateAppWidget();
   }
 
   @override
@@ -62,15 +66,48 @@ class _MainPageState extends ConsumerState<MainPage> {
   @override
   Widget build(BuildContext context) {
     ref.listen(notificationHandlerProvider, (previous, next) {});
-    return Scaffold(
-      body: Center(
-        child: Text(_counter.toString()),
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 80,
+              ),
+              CustomBox(
+                onTap: () => context.navigateTo(const AppListRoute()),
+                text: 'View Apps',
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomBox(
+                onTap: () {},
+                text: 'Pending Work',
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomBox(
+                onTap: () {},
+                text: 'Yet To Decide',
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomBox(
+                onTap: () {},
+                text: 'Comming Soon',
+              ),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: updateAppWidget,
+          tooltip: 'Increment',
+          child: Icon(Icons.add),
+        ), // This trailing comma makes auto-formatting nicer for build methods.
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const primaryColor = Color(0xFF1DA1F2);
+const primaryColor = Color.fromARGB(235, 229, 204, 141);
 const scaffoldColor = Color(0XFFeeeeee);
 const appBarColor = Colors.black;
 const profitColor = Color(0xFF22b237);

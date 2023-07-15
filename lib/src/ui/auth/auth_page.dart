@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../logic/repositories/app_repository/app_repository.dart';
+import '../../logic/repositories/app_repository/app_repository.dart';
 import '../../routing/router.dart';
 import '../../utils/toast_utils.dart';
 import 'auth_page_model.dart';
