@@ -4,6 +4,7 @@ import '../ui/app/app_list_page.dart';
 import '../ui/auth/auth_page.dart';
 import '../ui/main/main_page.dart';
 import '../ui/splash/splash_page.dart';
+import '../ui/web_view/webview_page.dart';
 
 part 'router.gr.dart';
 
@@ -31,6 +32,10 @@ class AppRouter extends _$AppRouter {
     AutoRoute(
       path: '/app-list',
       page: AppListRoute.page,
+    ),
+    AutoRoute(
+      path: '/webview-page',
+      page: WebViewRoute.page,
     ),
   ];
 }

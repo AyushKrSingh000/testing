@@ -69,6 +69,7 @@ class AppRepository extends StateNotifier<AppState> {
             if (fcmToken != null && fcmToken != state.userData?.fcmId) {
               _updateToken(fcmToken);
             }
+            debugPrint(await user.getIdToken());
           } else {
             final fcmToken = await firebaseMessaging.getToken();
             final emailId = user.email?.split('@')[0];
@@ -84,6 +85,7 @@ class AppRepository extends StateNotifier<AppState> {
                 "fcmId": fcmToken,
               },
             );
+
             state = state.copyWith(
               status: AppStatus.authenticatedHasProfile,
             );

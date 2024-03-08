@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashPage(),
       );
     },
+    WebViewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const WebViewPage(),
+      );
+    },
   };
 }
 
@@ -94,6 +100,20 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WebViewPage]
+class WebViewRoute extends PageRouteInfo<void> {
+  const WebViewRoute({List<PageRouteInfo>? children})
+      : super(
+          WebViewRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WebViewRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
