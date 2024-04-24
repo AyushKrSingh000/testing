@@ -143,7 +143,7 @@ class _MainPageState extends ConsumerState<MainPage> {
                 ),
                 CustomBox(
                   onTap: () => context.navigateTo(const WebViewRoute()),
-                  text: 'Generate PDF',
+                  text: 'Generate PDF',//purely for testing purposes
                 ),
                 const SizedBox(
                   height: 20,
