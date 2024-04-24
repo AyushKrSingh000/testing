@@ -136,7 +136,7 @@ class _MainPageState extends ConsumerState<MainPage> {
                 ),
                 CustomBox(
                   onTap: () => context.navigateTo(const AppListRoute()),
-                  text: 'Nice To See You All',
+                  text: 'Nice to Have you  here!',//purely for testing purposes only!!
                 ),
                 const SizedBox(
                   height: 20,
