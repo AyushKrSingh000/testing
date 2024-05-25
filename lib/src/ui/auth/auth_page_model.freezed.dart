@@ -63,22 +63,22 @@ class _$AuthPageStateCopyWithImpl<$Res, $Val extends AuthPageState>
 }
 
 /// @nodoc
-abstract class _$$_AuthPageStateCopyWith<$Res>
+abstract class _$$AuthPageStateImplCopyWith<$Res>
     implements $AuthPageStateCopyWith<$Res> {
-  factory _$$_AuthPageStateCopyWith(
-          _$_AuthPageState value, $Res Function(_$_AuthPageState) then) =
-      __$$_AuthPageStateCopyWithImpl<$Res>;
+  factory _$$AuthPageStateImplCopyWith(
+          _$AuthPageStateImpl value, $Res Function(_$AuthPageStateImpl) then) =
+      __$$AuthPageStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({AuthPageStatus status, String? errorMessage});
 }
 
 /// @nodoc
-class __$$_AuthPageStateCopyWithImpl<$Res>
-    extends _$AuthPageStateCopyWithImpl<$Res, _$_AuthPageState>
-    implements _$$_AuthPageStateCopyWith<$Res> {
-  __$$_AuthPageStateCopyWithImpl(
-      _$_AuthPageState _value, $Res Function(_$_AuthPageState) _then)
+class __$$AuthPageStateImplCopyWithImpl<$Res>
+    extends _$AuthPageStateCopyWithImpl<$Res, _$AuthPageStateImpl>
+    implements _$$AuthPageStateImplCopyWith<$Res> {
+  __$$AuthPageStateImplCopyWithImpl(
+      _$AuthPageStateImpl _value, $Res Function(_$AuthPageStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_AuthPageStateCopyWithImpl<$Res>
     Object? status = null,
     Object? errorMessage = freezed,
   }) {
-    return _then(_$_AuthPageState(
+    return _then(_$AuthPageStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,10 @@ class __$$_AuthPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AuthPageState with DiagnosticableTreeMixin implements _AuthPageState {
-  const _$_AuthPageState(
+class _$AuthPageStateImpl
+    with DiagnosticableTreeMixin
+    implements _AuthPageState {
+  const _$AuthPageStateImpl(
       {this.status = AuthPageStatus.initial, this.errorMessage});
 
   @override
@@ -130,7 +132,7 @@ class _$_AuthPageState with DiagnosticableTreeMixin implements _AuthPageState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AuthPageState &&
+            other is _$AuthPageStateImpl &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.errorMessage, errorMessage) ||
                 other.errorMessage == errorMessage));
@@ -142,14 +144,14 @@ class _$_AuthPageState with DiagnosticableTreeMixin implements _AuthPageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AuthPageStateCopyWith<_$_AuthPageState> get copyWith =>
-      __$$_AuthPageStateCopyWithImpl<_$_AuthPageState>(this, _$identity);
+  _$$AuthPageStateImplCopyWith<_$AuthPageStateImpl> get copyWith =>
+      __$$AuthPageStateImplCopyWithImpl<_$AuthPageStateImpl>(this, _$identity);
 }
 
 abstract class _AuthPageState implements AuthPageState {
   const factory _AuthPageState(
       {final AuthPageStatus status,
-      final String? errorMessage}) = _$_AuthPageState;
+      final String? errorMessage}) = _$AuthPageStateImpl;
 
   @override
   AuthPageStatus get status;
@@ -157,6 +159,6 @@ abstract class _AuthPageState implements AuthPageState {
   String? get errorMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_AuthPageStateCopyWith<_$_AuthPageState> get copyWith =>
+  _$$AuthPageStateImplCopyWith<_$AuthPageStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

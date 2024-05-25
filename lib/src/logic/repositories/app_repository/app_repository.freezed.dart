@@ -78,10 +78,11 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
 }
 
 /// @nodoc
-abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
-  factory _$$_AppStateCopyWith(
-          _$_AppState value, $Res Function(_$_AppState) then) =
-      __$$_AppStateCopyWithImpl<$Res>;
+abstract class _$$AppStateImplCopyWith<$Res>
+    implements $AppStateCopyWith<$Res> {
+  factory _$$AppStateImplCopyWith(
+          _$AppStateImpl value, $Res Function(_$AppStateImpl) then) =
+      __$$AppStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -92,11 +93,11 @@ abstract class _$$_AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AppStateCopyWithImpl<$Res>
-    extends _$AppStateCopyWithImpl<$Res, _$_AppState>
-    implements _$$_AppStateCopyWith<$Res> {
-  __$$_AppStateCopyWithImpl(
-      _$_AppState _value, $Res Function(_$_AppState) _then)
+class __$$AppStateImplCopyWithImpl<$Res>
+    extends _$AppStateCopyWithImpl<$Res, _$AppStateImpl>
+    implements _$$AppStateImplCopyWith<$Res> {
+  __$$AppStateImplCopyWithImpl(
+      _$AppStateImpl _value, $Res Function(_$AppStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +108,7 @@ class __$$_AppStateCopyWithImpl<$Res>
     Object? status = null,
     Object? lastFcmIDUpdatedAt = freezed,
   }) {
-    return _then(_$_AppState(
+    return _then(_$AppStateImpl(
       authUser: freezed == authUser
           ? _value.authUser
           : authUser // ignore: cast_nullable_to_non_nullable
@@ -130,8 +131,8 @@ class __$$_AppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppState with DiagnosticableTreeMixin implements _AppState {
-  const _$_AppState(
+class _$AppStateImpl with DiagnosticableTreeMixin implements _AppState {
+  const _$AppStateImpl(
       {this.authUser = null,
       this.userData = null,
       this.status = AppStatus.initial,
@@ -170,7 +171,7 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppState &&
+            other is _$AppStateImpl &&
             (identical(other.authUser, authUser) ||
                 other.authUser == authUser) &&
             (identical(other.userData, userData) ||
@@ -187,8 +188,8 @@ class _$_AppState with DiagnosticableTreeMixin implements _AppState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppStateCopyWith<_$_AppState> get copyWith =>
-      __$$_AppStateCopyWithImpl<_$_AppState>(this, _$identity);
+  _$$AppStateImplCopyWith<_$AppStateImpl> get copyWith =>
+      __$$AppStateImplCopyWithImpl<_$AppStateImpl>(this, _$identity);
 }
 
 abstract class _AppState implements AppState {
@@ -196,7 +197,7 @@ abstract class _AppState implements AppState {
       {final User? authUser,
       final UserData? userData,
       final AppStatus status,
-      final DateTime? lastFcmIDUpdatedAt}) = _$_AppState;
+      final DateTime? lastFcmIDUpdatedAt}) = _$AppStateImpl;
 
   @override
   User? get authUser;
@@ -208,6 +209,6 @@ abstract class _AppState implements AppState {
   DateTime? get lastFcmIDUpdatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_AppStateCopyWith<_$_AppState> get copyWith =>
+  _$$AppStateImplCopyWith<_$AppStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

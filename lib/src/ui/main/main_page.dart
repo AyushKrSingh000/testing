@@ -6,8 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
 
-import 'package:pdf/pdf.dart';
-import "package:printing/printing.dart";
 import 'package:pdf/widgets.dart' as pw;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,7 +17,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:testing/src/ui/main/widgets/testings.dart';
 import 'package:testing/src/ui/widgets/boxx.dart';
-import 'package:testing/src/utils/file_utils.dart';
 import 'notification_handler.dart';
 
 @RoutePage()
@@ -135,7 +132,7 @@ class _MainPageState extends ConsumerState<MainPage> {
                   height: 80,
                 ),
                 CustomBox(
-                  onTap: () => context.navigateTo(const AppListRoute()),
+                  onTap: () => context.navigateTo(const CustomMapRoute()),
                   text: 'Nice To See You All',
                 ),
                 const SizedBox(
@@ -148,61 +145,61 @@ class _MainPageState extends ConsumerState<MainPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                SizedBox(
-                  height: 300,
-                  child: PdfPreview(
-                    build: (format) => pdf.save(),
-                  ),
-                ),
-                CustomBox(
-                    onTap: () async {
-                      final topImageFile = await getImageFileFromAssets(
-                          'images/pdf_top_img.png');
-                      final topImage = pw.MemoryImage(
-                        topImageFile.readAsBytesSync(),
-                      );
-                      final bottomImageFile =
-                          await getImageFileFromAssets('images/acm.png');
-                      final bottomImage = pw.MemoryImage(
-                        bottomImageFile.readAsBytesSync(),
-                      );
-                      final font = await PdfGoogleFonts.nunitoBold();
+                // SizedBox(
+                //   height: 300,
+                //   child: PdfPreview(
+                //     build: (format) => pdf.save(),
+                //   ),
+                // ),
+                // CustomBox(
+                //     onTap: () async {
+                //       final topImageFile = await getImageFileFromAssets(
+                //           'images/pdf_top_img.png');
+                //       final topImage = pw.MemoryImage(
+                //         topImageFile.readAsBytesSync(),
+                //       );
+                //       final bottomImageFile =
+                //           await getImageFileFromAssets('images/acm.png');
+                //       final bottomImage = pw.MemoryImage(
+                //         bottomImageFile.readAsBytesSync(),
+                //       );
+                //       final font = await PdfGoogleFonts.nunitoBold();
 
-                      pdf.addPage(pw.Page(
-                          pageFormat: PdfPageFormat.undefined,
-                          orientation: pw.PageOrientation.natural,
-                          margin: pw.EdgeInsets.zero,
-                          clip: true,
-                          build: (pw.Context context) {
-                            return pw.Center(
-                              child: pw.Container(
-                                color: PdfColors.white,
-                                child: pw.Stack(
-                                  alignment: pw.Alignment.center,
-                                  children: [
-                                    // pw.Image.asset(
-                                    //     'assets/images/pdf_top_img.png'),
-                                    pw.Image(bottomImage),
-                                    pw.Padding(
-                                      padding:
-                                          const pw.EdgeInsets.only(top: 60),
-                                      child: pw.Text(
-                                        'Ayush Kumar Singh',
-                                        style: pw.TextStyle(
-                                            fontWeight: pw.FontWeight.bold,
-                                            fontSize: 60,
-                                            font: font),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                            // Center
-                          }));
-                      setState(() {});
-                    },
-                    text: "OK"),
+                //       pdf.addPage(pw.Page(
+                //           pageFormat: PdfPageFormat.undefined,
+                //           orientation: pw.PageOrientation.natural,
+                //           margin: pw.EdgeInsets.zero,
+                //           clip: true,
+                //           build: (pw.Context context) {
+                //             return pw.Center(
+                //               child: pw.Container(
+                //                 color: PdfColors.white,
+                //                 child: pw.Stack(
+                //                   alignment: pw.Alignment.center,
+                //                   children: [
+                //                     // pw.Image.asset(
+                //                     //     'assets/images/pdf_top_img.png'),
+                //                     pw.Image(bottomImage),
+                //                     pw.Padding(
+                //                       padding:
+                //                           const pw.EdgeInsets.only(top: 60),
+                //                       child: pw.Text(
+                //                         'Ayush Kumar Singh',
+                //                         style: pw.TextStyle(
+                //                             fontWeight: pw.FontWeight.bold,
+                //                             fontSize: 60,
+                //                             font: font),
+                //                       ),
+                //                     ),
+                //                   ],
+                //                 ),
+                //               ),
+                //             );
+                //             // Center
+                //           }));
+                //       setState(() {});
+                //     },
+                //     text: "OK"),
                 CustomBox(
                   //
                   onTap: () async {
@@ -251,6 +248,9 @@ class _MainPageState extends ConsumerState<MainPage> {
                       await connection.close();
                     },
                     text: 'mail pdf'),
+                const SizedBox(
+                  height: 30,
+                ),
                 CustomBox(
                   onTap: () {
                     ref.read(appRepositoryProvider.notifier).logout();

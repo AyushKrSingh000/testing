@@ -74,6 +74,9 @@ dependencies:
   geolocator: ^10.1.0
   mailer: ^6.0.1
   printing: ^5.11.1
+  interactive_bottom_sheet: ^1.0.0
+  draggable_bottom_sheet: ^1.0.2
+  flutter_osm_plugin: ^0.60.4
 
 dev_dependencies:
   flutter_test:
