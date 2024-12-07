@@ -70,11 +70,11 @@ class _$AppListPageStateCopyWithImpl<$Res, $Val extends AppListPageState>
 }
 
 /// @nodoc
-abstract class _$$AppListPageStateImplCopyWith<$Res>
+abstract class _$$_AppListPageStateCopyWith<$Res>
     implements $AppListPageStateCopyWith<$Res> {
-  factory _$$AppListPageStateImplCopyWith(_$AppListPageStateImpl value,
-          $Res Function(_$AppListPageStateImpl) then) =
-      __$$AppListPageStateImplCopyWithImpl<$Res>;
+  factory _$$_AppListPageStateCopyWith(
+          _$_AppListPageState value, $Res Function(_$_AppListPageState) then) =
+      __$$_AppListPageStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -82,11 +82,11 @@ abstract class _$$AppListPageStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$AppListPageStateImplCopyWithImpl<$Res>
-    extends _$AppListPageStateCopyWithImpl<$Res, _$AppListPageStateImpl>
-    implements _$$AppListPageStateImplCopyWith<$Res> {
-  __$$AppListPageStateImplCopyWithImpl(_$AppListPageStateImpl _value,
-      $Res Function(_$AppListPageStateImpl) _then)
+class __$$_AppListPageStateCopyWithImpl<$Res>
+    extends _$AppListPageStateCopyWithImpl<$Res, _$_AppListPageState>
+    implements _$$_AppListPageStateCopyWith<$Res> {
+  __$$_AppListPageStateCopyWithImpl(
+      _$_AppListPageState _value, $Res Function(_$_AppListPageState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +96,7 @@ class __$$AppListPageStateImplCopyWithImpl<$Res>
     Object? appInfoList = freezed,
     Object? status = freezed,
   }) {
-    return _then(_$AppListPageStateImpl(
+    return _then(_$_AppListPageState(
       appList: freezed == appList
           ? _value._appList
           : appList // ignore: cast_nullable_to_non_nullable
@@ -112,10 +112,10 @@ class __$$AppListPageStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AppListPageStateImpl
+class _$_AppListPageState
     with DiagnosticableTreeMixin
     implements _AppListPageState {
-  const _$AppListPageStateImpl(
+  const _$_AppListPageState(
       {final List<AppData>? appList = null,
       final List<AppInfo>? appInfoList = null,
       this.status = AppListStatus.initial})
@@ -167,7 +167,7 @@ class _$AppListPageStateImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AppListPageStateImpl &&
+            other is _$_AppListPageState &&
             const DeepCollectionEquality().equals(other._appList, _appList) &&
             const DeepCollectionEquality()
                 .equals(other._appInfoList, _appInfoList) &&
@@ -184,16 +184,15 @@ class _$AppListPageStateImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppListPageStateImplCopyWith<_$AppListPageStateImpl> get copyWith =>
-      __$$AppListPageStateImplCopyWithImpl<_$AppListPageStateImpl>(
-          this, _$identity);
+  _$$_AppListPageStateCopyWith<_$_AppListPageState> get copyWith =>
+      __$$_AppListPageStateCopyWithImpl<_$_AppListPageState>(this, _$identity);
 }
 
 abstract class _AppListPageState implements AppListPageState {
   const factory _AppListPageState(
       {final List<AppData>? appList,
       final List<AppInfo>? appInfoList,
-      final dynamic status}) = _$AppListPageStateImpl;
+      final dynamic status}) = _$_AppListPageState;
 
   @override
   List<AppData>? get appList;
@@ -203,6 +202,6 @@ abstract class _AppListPageState implements AppListPageState {
   dynamic get status;
   @override
   @JsonKey(ignore: true)
-  _$$AppListPageStateImplCopyWith<_$AppListPageStateImpl> get copyWith =>
+  _$$_AppListPageStateCopyWith<_$_AppListPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }

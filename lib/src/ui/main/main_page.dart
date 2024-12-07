@@ -122,6 +122,32 @@ class _MainPageState extends ConsumerState<MainPage> {
     File? file;
 
     ref.listen(notificationHandlerProvider, (previous, next) {});
+    ref.listen(appRepositoryProvider, (previous, next) async {
+      if (next.status != previous?.status) {
+        final router = context.router;
+        switch (next.status) {
+          case AppStatus.initial:
+            // do nothing
+            router.replace(const AuthRoute());
+            break;
+          case AppStatus.unauthenticated:
+            // navigate to auth after a delay
+            await Future.delayed(const Duration(milliseconds: 2400));
+            router.replace(const AuthRoute());
+            break;
+          case AppStatus.authenticatedHasProfile:
+            // navigate to create profile after a delay
+            await Future.delayed(const Duration(milliseconds: 2400));
+            router.replace(const MainRoute());
+            break;
+          case AppStatus.authenticatedNoProfile:
+            // navigate to main after a delay
+            await Future.delayed(const Duration(milliseconds: 2400));
+            router.replace(const MainRoute());
+            break;
+        }
+      }
+    });
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(

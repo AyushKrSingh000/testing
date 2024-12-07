@@ -57,22 +57,22 @@ class _$MainPageStateCopyWithImpl<$Res, $Val extends MainPageState>
 }
 
 /// @nodoc
-abstract class _$$MainPageStateImplCopyWith<$Res>
+abstract class _$$_MainPageStateCopyWith<$Res>
     implements $MainPageStateCopyWith<$Res> {
-  factory _$$MainPageStateImplCopyWith(
-          _$MainPageStateImpl value, $Res Function(_$MainPageStateImpl) then) =
-      __$$MainPageStateImplCopyWithImpl<$Res>;
+  factory _$$_MainPageStateCopyWith(
+          _$_MainPageState value, $Res Function(_$_MainPageState) then) =
+      __$$_MainPageStateCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int userBalance});
 }
 
 /// @nodoc
-class __$$MainPageStateImplCopyWithImpl<$Res>
-    extends _$MainPageStateCopyWithImpl<$Res, _$MainPageStateImpl>
-    implements _$$MainPageStateImplCopyWith<$Res> {
-  __$$MainPageStateImplCopyWithImpl(
-      _$MainPageStateImpl _value, $Res Function(_$MainPageStateImpl) _then)
+class __$$_MainPageStateCopyWithImpl<$Res>
+    extends _$MainPageStateCopyWithImpl<$Res, _$_MainPageState>
+    implements _$$_MainPageStateCopyWith<$Res> {
+  __$$_MainPageStateCopyWithImpl(
+      _$_MainPageState _value, $Res Function(_$_MainPageState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$MainPageStateImplCopyWithImpl<$Res>
   $Res call({
     Object? userBalance = null,
   }) {
-    return _then(_$MainPageStateImpl(
+    return _then(_$_MainPageState(
       userBalance: null == userBalance
           ? _value.userBalance
           : userBalance // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$MainPageStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MainPageStateImpl implements _MainPageState {
-  const _$MainPageStateImpl({this.userBalance = 0});
+class _$_MainPageState implements _MainPageState {
+  const _$_MainPageState({this.userBalance = 0});
 
   @override
   @JsonKey()
@@ -107,7 +107,7 @@ class _$MainPageStateImpl implements _MainPageState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MainPageStateImpl &&
+            other is _$_MainPageState &&
             (identical(other.userBalance, userBalance) ||
                 other.userBalance == userBalance));
   }
@@ -118,17 +118,17 @@ class _$MainPageStateImpl implements _MainPageState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MainPageStateImplCopyWith<_$MainPageStateImpl> get copyWith =>
-      __$$MainPageStateImplCopyWithImpl<_$MainPageStateImpl>(this, _$identity);
+  _$$_MainPageStateCopyWith<_$_MainPageState> get copyWith =>
+      __$$_MainPageStateCopyWithImpl<_$_MainPageState>(this, _$identity);
 }
 
 abstract class _MainPageState implements MainPageState {
-  const factory _MainPageState({final int userBalance}) = _$MainPageStateImpl;
+  const factory _MainPageState({final int userBalance}) = _$_MainPageState;
 
   @override
   int get userBalance;
   @override
   @JsonKey(ignore: true)
-  _$$MainPageStateImplCopyWith<_$MainPageStateImpl> get copyWith =>
+  _$$_MainPageStateCopyWith<_$_MainPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }

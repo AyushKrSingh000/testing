@@ -96,7 +96,9 @@ class AppRepository extends StateNotifier<AppState> {
   }
 
   void logout() async {
-    await googleSignIn.disconnect();
+    try {
+      await googleSignIn.disconnect();
+    } catch (e) {}
     await firebaseAuth.signOut();
   }
 

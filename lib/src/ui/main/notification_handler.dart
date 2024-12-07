@@ -17,9 +17,6 @@ final notificationHandlerProvider =
   ),
 );
 
-/// Listens to Firebase Messaging onMessage and onMessageOpenedApp streams
-/// - Handles the click events for all notification (via FCM messages and NotificationService both)
-/// - Shows FCM notification when app is in foreground and for data messages
 class NotificationHandler extends StateNotifier {
   final NotificationService notificationService;
   final AutoDisposeStateNotifierProviderRef ref;
